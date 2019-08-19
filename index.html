@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS3 - Dagens uppgift 2019-08-19</title>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    body,.anime {
+      min-width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      background-color: #000;
+      color: rgb(255, 157, 44);
+      font-family: 'Permanent Marker';
+      justify-content: space-around;
+      flex-direction: column; 
+      
+    }
+    .anime:nth-child(even) { background-color: #333; }
+    h1 { 
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+    }
+    #smiley { font-size: 20em; }
+    #text { 
+      font-size: 3em; 
+      opacity: 0;
+    }
+    #circle {
+      width: 50vh;
+      height: 50vh;
+      border: 5px solid rgb(255, 157, 44);
+    }
+    #circle,#dot { border-radius: 100%; }
+    #dot { 
+      width: 3vh;
+      height: 3vh;
+      background-color: rgb(255, 157, 44);
+      position: relative;
+      left: 10vh;
+      top: 10vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="anime">
+    <h1 id="smiley">☻</h1>
+  </div>
+  <div class="anime">
+    <h1 id="text">Life is a grave, dig it!</h1>
+  </div>
+  <div class="anime">
+    <div id="circle">
+      <div id="dot"></div>
+    </div>
+  </div>
+  <script src="anime.min.js"></script>
+  <script>
+    // Smiley
+    anime({
+      targets: '#smiley',
+      loop: true,
+      rotate: [10,0,-10,0],
+      easing: 'easeInOutSine',
+    });
+
+    // Text
+    anime({
+      targets: '#text',
+      loop: true,
+      opacity: [0.5,1,1,1,1,1,0.75,0.5,0],
+      easing: 'easeInOutSine',
+      scale: [1,1.5],
+      rotate: [0,25,-25,0],
+      duration: 1000
+    });
+
+    // Circle
+    anime({
+      loop: true,
+      targets: '#circle',
+      rotate: [30,60,90,120,150,180,210,240,270,300,330,360],
+      duration: 6000
+    });
+  </script>
+</body>
+</html>
